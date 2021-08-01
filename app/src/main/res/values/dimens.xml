@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gap_tiny">4dp</dimen>
+    <dimen name="gap_small">8dp</dimen>
+    <dimen name="gap_medium">16dp</dimen>
+    <dimen name="gap_large">24dp</dimen>
+    <dimen name="gap_big">32dp</dimen>
+
+    <dimen name="date_recyclerview_height">100dp</dimen>
+</resources>

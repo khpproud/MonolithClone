@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiDate"
+            type="dev.patrick.monolithassignment.ui.vo.UiDate" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/gap_medium"
+        android:paddingVertical="@dimen/gap_small">
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_medium"
+            android:text="@{uiDate.month}"
+            android:textAppearance="?attr/textAppearanceCaption"
+            app:monthVisibility="@{uiDate.date}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_date_of_month"
+            tools:text="8월" />
+
+        <TextView
+            android:id="@+id/tv_date_of_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_small"
+            android:text="@{uiDate.date}"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_month"
+            app:layout_constraintBottom_toTopOf="@id/tv_day_of_week"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{uiDate.dayOfWeek}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_of_month"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="일" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

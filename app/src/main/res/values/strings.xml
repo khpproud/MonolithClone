@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MonolithAssignment</string>
+    <string name="label_select_date_time">날짜 시간 선택</string>
+    <string name="prev">이전</string>
+    <string name="next">다음</string>
+    <string name="label_schedule">1-1-2 코스 3회권</string>
+</resources>
