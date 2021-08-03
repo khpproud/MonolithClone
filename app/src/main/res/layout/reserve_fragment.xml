@@ -16,6 +16,17 @@
         android:layout_height="match_parent"
         tools:context=".ui.reserve.ReserveFragment">
 
+        <include
+            android:id="@+id/header"
+            layout="@layout/header_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rv_date"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_date"
             android:layout_width="0dp"
@@ -26,7 +37,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header"
             app:layout_constraintBottom_toTopOf="@id/lb_schedule_name"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/item_date" />
@@ -39,7 +50,7 @@
             android:layout_marginVertical="@dimen/gap_small"
             android:text="4월"
             android:background="@color/gray_500"
-            android:textAppearance="?attr/textAppearanceCaption"
+            android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintStart_toStartOf="@id/rv_date"
             app:layout_constraintTop_toTopOf="@id/rv_date"
             tools:text="8월" />
@@ -48,8 +59,8 @@
             android:id="@+id/lb_schedule_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceCaption"
-            android:text="Test schedule"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:text="@string/label_schedule"
             android:layout_marginHorizontal="@dimen/gap_big"
             android:layout_marginVertical="@dimen/gap_medium"
             app:layout_constraintTop_toBottomOf="@id/rv_date"
@@ -66,9 +77,19 @@
             app:layout_constraintTop_toBottomOf="@id/lb_schedule_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/footer"
             tools:listitem="@layout/item_timetable"
             tools:itemCount="20" />
+
+        <include
+            android:id="@+id/footer"
+            layout="@layout/footer_buttons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

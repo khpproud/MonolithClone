@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="clickListener"
             type="dev.patrick.monolithassignment.ui.adapter.UiDateClickListener" />
@@ -15,6 +14,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/gap_medium"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/gap_medium"
             android:text="@{uiDate.month}"
-            android:textAppearance="?attr/textAppearanceCaption"
+            android:textAppearance="?attr/textAppearanceListItem"
             app:monthVisibility="@{uiDate.date}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,11 +37,16 @@
 
         <TextView
             android:id="@+id/tv_date_of_month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/date_text_size"
+            android:layout_height="@dimen/date_text_size"
             android:layout_marginBottom="@dimen/gap_small"
+            android:gravity="center"
             android:text="@{uiDate.date}"
+            app:dayOfWeekStatus="@{uiDate}"
             android:textAppearance="?attr/textAppearanceBody1"
+            android:background="@drawable/border_date"
+            android:duplicateParentState="true"
+            app:selectedDateStatus="@{uiDate}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_month"
@@ -52,7 +57,9 @@
             android:id="@+id/tv_day_of_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{uiDate.dayOfWeek}"
+            android:duplicateParentState="true"
+            app:parseKoreanString="@{uiDate}"
+            app:dayOfWeekStatus="@{uiDate}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date_of_month"

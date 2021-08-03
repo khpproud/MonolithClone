@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dev.patrick.monolithassignment.databinding.ItemDateBinding
 import dev.patrick.monolithassignment.ui.vo.UiDate
+import timber.log.Timber
 import javax.inject.Inject
 
 class DateAdapter @Inject constructor() : ListAdapter<UiDate, DateAdapter.DateViewHolder>(
@@ -15,6 +16,14 @@ class DateAdapter @Inject constructor() : ListAdapter<UiDate, DateAdapter.DateVi
     private var uiDateItemClickListener: UiDateClickListener? = null
     fun setUiDateItemClickListener(listener: UiDateClickListener) {
         uiDateItemClickListener = listener
+    }
+
+    fun getCurrentMonth(position: Int): String {
+        val firstItem = getItem(position)
+        if (firstItem.date == "1") {
+            Timber.w("first date: ${firstItem.month}")
+        }
+        return firstItem.month
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateViewHolder {
@@ -30,8 +39,9 @@ class DateAdapter @Inject constructor() : ListAdapter<UiDate, DateAdapter.DateVi
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: UiDate, clickListener: UiDateClickListener) {
-            binding.uiDate = item
             binding.clickListener = clickListener
+            binding.uiDate = item
+            binding.layoutDate.isSelected = item.selected
             binding.executePendingBindings()
         }
 

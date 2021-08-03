@@ -54,21 +54,21 @@ class ReserveApiTest {
         mockWebServer.shutdown()
     }
 
-    @Test
-    fun `Get basic json file returns parsed strings`() = coroutinesTestRule.dispatcher.runBlockingTest {
-        enqueueResponse("basic.json")
-        val weekdayTimetable = api.getSundayTimetable().data
-
-        assertThat(weekdayTimetable).isNotNull()
-        assertThat(weekdayTimetable.timeList.size).isGreaterThan(1)
-    }
-
-    private fun enqueueResponse(filename: String) {
-        val mockResponse = MockResponse()
-        val timetable = context.readFileFromAssets(filename)
-
-        mockWebServer.enqueue(
-            mockResponse.setBody(timetable)
-        )
-    }
+//    @Test
+//    fun `Get basic json file returns parsed strings`() = coroutinesTestRule.dispatcher.runBlockingTest {
+//        enqueueResponse("basic.json")
+//        val weekdayTimetable = api.getSundayTimetable().data
+//
+//        assertThat(weekdayTimetable).isNotNull()
+//        assertThat(weekdayTimetable.timeList.size).isGreaterThan(1)
+//    }
+//
+//    private fun enqueueResponse(filename: String) {
+//        val mockResponse = MockResponse()
+//        val timetable = context.readFileFromAssets(filename)
+//
+//        mockWebServer.enqueue(
+//            mockResponse.setBody(timetable)
+//        )
+//    }
 }

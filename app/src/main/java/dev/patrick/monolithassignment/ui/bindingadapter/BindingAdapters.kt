@@ -4,12 +4,12 @@ import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import dev.patrick.monolithassignment.R
 import dev.patrick.monolithassignment.domain.model.StockStatus
 import dev.patrick.monolithassignment.ui.vo.UiDate
-import timber.log.Timber
+import dev.patrick.monolithassignment.utils.parseKoreanDayOfWeek
+import java.time.DayOfWeek
 
 @BindingAdapter("monthVisibility")
 fun TextView.showMonthVisibility(date: String) {
@@ -48,5 +48,36 @@ fun ViewGroup.setEnableStatus(stockStatus: StockStatus) {
         setBackgroundResource(R.drawable.border_time)
         isClickable = true
         isFocusable = true
+    }
+}
+
+@BindingAdapter("dayOfWeekStatus")
+fun TextView.setDayOfWeekStatus(uiDate: UiDate) {
+    when {
+        uiDate.dayOfWeek == DayOfWeek.SUNDAY || uiDate.isHoliday -> {
+            setTextColor(Color.RED)
+        }
+        uiDate.dayOfWeek == DayOfWeek.SATURDAY -> {
+            setTextColor(Color.BLUE)
+        }
+        else -> {
+            setTextColor(Color.BLACK)
+        }
+    }
+}
+
+@BindingAdapter("parseKoreanString")
+fun TextView.parseKoreanString(uiDate: UiDate) {
+    text = parseKoreanDayOfWeek(uiDate.dayOfWeek)
+}
+
+@BindingAdapter("selectedDateStatus")
+fun TextView.setSelectedDateStatus(uiDate: UiDate) {
+    if (uiDate.selected) {
+        setBackgroundResource(R.drawable.border_date)
+        setTextColor(Color.WHITE)
+    } else {
+        setBackgroundColor(Color.TRANSPARENT)
+        setTextColor(Color.BLACK)
     }
 }
