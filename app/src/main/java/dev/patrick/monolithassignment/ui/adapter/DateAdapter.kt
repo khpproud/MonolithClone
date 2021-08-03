@@ -12,20 +12,26 @@ import javax.inject.Inject
 class DateAdapter @Inject constructor() : ListAdapter<UiDate, DateAdapter.DateViewHolder>(
     DATE_DIFF_CALLBACK) {
 
+    private var uiDateItemClickListener: UiDateClickListener? = null
+    fun setUiDateItemClickListener(listener: UiDateClickListener) {
+        uiDateItemClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateViewHolder {
         return DateViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: DateViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        uiDateItemClickListener?.let { holder.bind(getItem(position), it) }
     }
 
     class DateViewHolder private constructor(
         private val binding: ItemDateBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: UiDate) {
+        fun bind(item: UiDate, clickListener: UiDateClickListener) {
             binding.uiDate = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -48,4 +54,8 @@ class DateAdapter @Inject constructor() : ListAdapter<UiDate, DateAdapter.DateVi
             }
         }
     }
+}
+
+interface UiDateClickListener {
+    fun onClick(uiDate: UiDate)
 }

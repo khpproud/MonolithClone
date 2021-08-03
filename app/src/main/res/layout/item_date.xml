@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="dev.patrick.monolithassignment.ui.adapter.UiDateClickListener" />
+
+        <variable
             name="uiDate"
             type="dev.patrick.monolithassignment.ui.vo.UiDate" />
     </data>
@@ -14,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/gap_medium"
-        android:paddingVertical="@dimen/gap_small">
+        android:paddingVertical="@dimen/gap_small"
+        android:onClick="@{() -> clickListener.onClick(uiDate)}">
 
         <TextView
             android:id="@+id/tv_month"

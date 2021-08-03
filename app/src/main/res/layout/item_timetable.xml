@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="dev.patrick.monolithassignment.domain.model.StockStatus" />
+        <variable
+            name="uiTimetable"
+            type="dev.patrick.monolithassignment.ui.vo.UiTimetable" />
+        <variable
+            name="clickListener"
+            type="dev.patrick.monolithassignment.ui.adapter.UiTimetableClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/gap_small"
+        android:layout_margin="@dimen/gap_tiny"
+        android:background="@drawable/border_time"
+        android:onClick="@{() -> clickListener.onClick(uiTimetable)}"
+        app:enableStatus="@{uiTimetable.stockStatus}"
+       >
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/gap_small"
+            android:text="@{uiTimetable.timeSlot}"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_state"
+            tools:text="09:10" />
+
+        <TextView
+            android:id="@+id/tv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:timetableStatus="@{uiTimetable.stockStatus}"
+            app:layout_constraintTop_toBottomOf="@id/tv_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="여유" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

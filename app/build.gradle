@@ -49,6 +49,8 @@ android {
             option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
         }
     }
+
+    testOptions.unitTests.includeAndroidResources = true
 }
 
 kotlin.sourceSets.all {
@@ -120,4 +122,11 @@ dependencies {
     def core_version = "2.1.0"
     testImplementation "androidx.arch.core:core-testing:$core_version"
     testImplementation "androidx.test:core:1.4.0"
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+
+    testImplementation "androidx.test:runner:1.4.0"
+    testImplementation "androidx.test:rules:1.4.0"
+    testImplementation "androidx.test.ext:junit:1.1.3"
+    testImplementation "org.robolectric:robolectric:4.5.1"
 }

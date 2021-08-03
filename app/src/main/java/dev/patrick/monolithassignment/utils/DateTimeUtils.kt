@@ -2,6 +2,7 @@ package dev.patrick.monolithassignment.utils
 
 import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.LocalTime
 
 fun parseStringToDate(dateStr: String): LocalDate {
     return LocalDate.parse(dateStr)
@@ -17,4 +18,8 @@ fun parseToDayOfWeek(date: LocalDate): String {
         DayOfWeek.FRIDAY -> "금"
         DayOfWeek.SATURDAY -> "토"
     }
+}
+
+fun parseStringToTime(timeStr: String): LocalTime {
+    return LocalTime.parse(timeStr)
 }

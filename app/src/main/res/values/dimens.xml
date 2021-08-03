@@ -7,4 +7,6 @@
     <dimen name="gap_big">32dp</dimen>
 
     <dimen name="date_recyclerview_height">100dp</dimen>
+    <dimen name="timetable_size">100dp</dimen>
+    <dimen name="timetable_list_horizontal_margin">22dp</dimen>
 </resources>

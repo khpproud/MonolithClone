@@ -45,4 +45,16 @@ class RemoteDataSourceTest : CoroutineTestRule() {
             )
         )
     }
+
+    @Test
+    fun `Get remote timetable returns with Timetable list`() = dispatcher.runBlockingTest {
+        // Given
+        whenever(api.getWeekDayTimetable()) doReturn FakeRemote.getRemoteTimetables()
+
+        // When
+        val timetables = remoteDataSource.getRemoteTimetables(isSunday = false)
+
+        // Then
+        assertThat(timetables.timeList.size).isEqualTo(1)
+    }
 }

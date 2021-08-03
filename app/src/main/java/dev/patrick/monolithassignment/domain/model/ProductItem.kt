@@ -20,6 +20,6 @@ data class ProductItem(
         val stcDetailId: String,
         val stockUseYn: Boolean,
         val enabled: Boolean,
-        val stockStatusStr: StockStatus
+        val stockStatus: StockStatus
     ) : Parcelable
 }

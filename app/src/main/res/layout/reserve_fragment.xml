@@ -24,10 +24,10 @@
             android:orientation="horizontal"
             android:background="@color/gray_500"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lb_schedule_name"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/item_date" />
 
@@ -43,6 +43,32 @@
             app:layout_constraintStart_toStartOf="@id/rv_date"
             app:layout_constraintTop_toTopOf="@id/rv_date"
             tools:text="8월" />
+
+        <TextView
+            android:id="@+id/lb_schedule_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:text="Test schedule"
+            android:layout_marginHorizontal="@dimen/gap_big"
+            android:layout_marginVertical="@dimen/gap_medium"
+            app:layout_constraintTop_toBottomOf="@id/rv_date"
+            app:layout_constraintBottom_toTopOf="@id/rv_timetable"
+            app:layout_constraintStart_toStartOf="parent" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_timetable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/timetable_list_horizontal_margin"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            app:layout_constraintTop_toBottomOf="@id/lb_schedule_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_timetable"
+            tools:itemCount="20" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
