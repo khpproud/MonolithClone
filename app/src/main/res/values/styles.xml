@@ -8,4 +8,13 @@
         <item name="android:insetBottom">0dp</item>
         <item name="android:backgroundTint">@color/button_enabled</item>
     </style>
+
+    <style name="Widget.Monolith.Status" parent="Widget.MaterialComponents.TextView">
+        <item name="android:paddingTop">@dimen/gap_tiny</item>
+        <item name="android:paddingBottom">@dimen/gap_tiny</item>
+        <item name="android:paddingStart">@dimen/gap_small</item>
+        <item name="android:paddingEnd">@dimen/gap_small</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?attr/textAppearanceCaption</item>
+    </style>
 </resources>

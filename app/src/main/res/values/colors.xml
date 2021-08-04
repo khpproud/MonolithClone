@@ -11,4 +11,5 @@
     <color name="gray_200">#ECEBEB</color>
     <color name="gray_500">#EFEFEF</color>
     <color name="yellow_500">#FFEB3B</color>
+    <color name="disabled">#1E000000</color>
 </resources>

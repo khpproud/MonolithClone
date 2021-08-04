@@ -4,4 +4,7 @@
     <string name="prev">이전</string>
     <string name="next">다음</string>
     <string name="label_schedule">1-1-2 코스 3회권</string>
+    <string name="label_select_ticket">티켓선택</string>
+    <string name="label_select_time">시간선택</string>
+    <string name="label_payment">결제하기</string>
 </resources>

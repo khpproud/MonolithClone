@@ -5,5 +5,5 @@
         android:color="@color/disabled" />
     <item
         android:state_enabled="true"
-        android:color="@color/yellow_500" />
+        android:color="?attr/colorPrimary" />
 </selector>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:gravity="fill"
+        android:drawable="@drawable/ic_circle_border" />
+    <item
+        android:gravity="center"
+        android:drawable="@drawable/ic_krw"
+        android:top="2dp"
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        />
+
+</layer-list>

@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/prev"
             android:backgroundTint="@color/gray_500"
+            android:onClick="@{() -> viewModel.onPrevBtnClicked()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guide_bottom"
             app:layout_constraintTop_toTopOf="parent"

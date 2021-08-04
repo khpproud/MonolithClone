@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/gap_small"
         android:layout_margin="@dimen/gap_tiny"
-        android:background="@drawable/border_time"
+        android:background="@drawable/time_border"
         android:onClick="@{() -> clickListener.onClick(uiTimetable)}"
         app:enableStatus="@{uiTimetable.stockStatus}"
        >

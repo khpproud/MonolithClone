@@ -7,6 +7,6 @@
 
     <stroke
         android:width="2dp"
-        android:color="@color/state_selected" />
+        android:color="@color/time_selected_state" />
 
 </shape>

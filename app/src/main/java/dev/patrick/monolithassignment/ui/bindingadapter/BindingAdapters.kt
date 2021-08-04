@@ -45,7 +45,7 @@ fun ViewGroup.setEnableStatus(stockStatus: StockStatus) {
         isClickable = false
         isFocusable = false
     } else {
-        setBackgroundResource(R.drawable.border_time)
+        setBackgroundResource(R.drawable.time_border)
         isClickable = true
         isFocusable = true
     }
@@ -74,10 +74,9 @@ fun TextView.parseKoreanString(uiDate: UiDate) {
 @BindingAdapter("selectedDateStatus")
 fun TextView.setSelectedDateStatus(uiDate: UiDate) {
     if (uiDate.selected) {
-        setBackgroundResource(R.drawable.border_date)
+        setBackgroundResource(R.drawable.date_border)
         setTextColor(Color.WHITE)
     } else {
         setBackgroundColor(Color.TRANSPARENT)
-        setTextColor(Color.BLACK)
     }
 }

@@ -21,10 +21,6 @@ class ReserveViewModel @Inject constructor(
     private val getScheduleTimetable: GetScheduleTimetable
 ) : ViewModel() {
 
-//    private val _uiDates = MutableLiveData<List<UiDate>>()
-//    val uiDates: LiveData<List<UiDate>>
-//        get() = _uiDates
-
     private val _uiDates = MediatorLiveData<List<UiDate>>()
     val uiDates: LiveData<List<UiDate>>
         get() = _uiDates
@@ -117,6 +113,10 @@ class ReserveViewModel @Inject constructor(
         if (nextBtnEnabled.value == true) {
             _resultDateAndTime.value = Event(getResultDateTime())
         }
+    }
+
+    fun onPrevBtnClicked() {
+        _selectedTime.value = null
     }
 
     fun setCurrentMonth(currentMonth: String) {
